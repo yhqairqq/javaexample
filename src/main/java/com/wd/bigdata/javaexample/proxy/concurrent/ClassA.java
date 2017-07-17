@@ -5,6 +5,14 @@ package com.wd.bigdata.javaexample.proxy.concurrent;
  */
 public class ClassA {
 
+    static{
+        System.out.println("class A static块");
+    }
+
+    public static void staticPrint(){
+        System.out.println("class a static print");
+    }
+
     private int age;
 
     public int getAge() {

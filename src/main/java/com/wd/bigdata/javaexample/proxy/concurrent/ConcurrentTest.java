@@ -15,7 +15,6 @@ public class ConcurrentTest {
 
     public  static ExecutorService executorService  =  Executors.newFixedThreadPool(5);
 
-
     public static AtomicLong counter = new AtomicLong(0L);
 
     static class Job implements Runnable{

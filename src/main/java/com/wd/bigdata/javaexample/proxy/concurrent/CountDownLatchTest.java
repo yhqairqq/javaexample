@@ -9,8 +9,9 @@ public class CountDownLatchTest {
     public static  void main(String args[]) throws InterruptedException {
 
 
-        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(8,// 核心线程数
-                6, // 最大线程数
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+                8,// 核心线程数
+                10, // 最大线程数
                 100, // 闲置线程存活时间
                 TimeUnit.MILLISECONDS,// 时间单位
                 new LinkedBlockingDeque<Runnable>(),// 线程队列

@@ -10,16 +10,23 @@ public class ClassTest {
 
 
     public static  void main(String args[]) throws IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        Class clazz1 = A.class;
+//        Class clazz1 = A.class;
+//
+//        System.out.println(clazz1.newInstance().getClass().getSimpleName());
+//
+//
+//        Class clazA = Class.forName("com.wd.bigdata.javaexample.proxy.Class.A");
+//                .getConstructor(String.class,int.class,float.class)
 
-        System.out.println(clazz1.newInstance().getClass().getSimpleName());
+        System.out.println("================");
 
+        Class<?> claz = Class.forName("com.wd.bigdata.javaexample.proxy.Class.A",
+                false,
+                A.class.getClassLoader());
 
-        Constructor con = Class.forName("com.wd.bigdata.javaexample.proxy.Class.A").getConstructor(String.class,int.class,float.class);
-
-        Object o = con.newInstance("yang",29,0.2f);
-
-        System.out.println(o.getClass().getName());
-        System.out.println(o.toString());
+//        Object o = con.newInstance("yang",29,0.2f);
+//
+//        System.out.println(o.getClass().getName());
+//        System.out.println(o.toString());
     }
 }

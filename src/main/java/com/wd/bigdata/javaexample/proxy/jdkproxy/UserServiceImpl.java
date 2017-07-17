@@ -5,7 +5,7 @@ package com.wd.bigdata.javaexample.proxy.jdkproxy;
  */
 public class UserServiceImpl implements UserService {
     public void add(String name) {
-        System.out.println("call add function with parameter " + name);
+       int result = 10000+10000;
 
 
     }

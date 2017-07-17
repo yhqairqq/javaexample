@@ -13,7 +13,13 @@ public class A {
     private float field3;
 
 
+    static {
+        System.out.println("A static init");
+    }
+
+
     public A() {
+        System.out.println(" A construct ");
     }
 
     public A(String field1) {
