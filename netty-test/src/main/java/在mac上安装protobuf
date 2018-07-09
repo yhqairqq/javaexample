@@ -1,0 +1,9 @@
+下载protobuf2.6.1
+./configure --prefix=/User/juanq/software/tools/protobuf
+ /User/King-pan/software/tools/protobuf  为自己设定的编译安装目录
+ make
+ make install
+
+protoc --version
+
+protoc --java_out=. Batch.proto
