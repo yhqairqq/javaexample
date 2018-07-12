@@ -20,6 +20,7 @@ public class StudentClient {
             Bootstrap boot = new Bootstrap();
             boot.group(group)
                     .channel(NioSocketChannel.class)
+                    .option(ChannelOption.SO_KEEPALIVE,true)
                     .option(ChannelOption.TCP_NODELAY,true)
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
@@ -37,10 +38,11 @@ public class StudentClient {
 
                                 @Override
                                 public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-                                    for(long i=0;i<10;i++){
-                                        ctx.write(req(i));
-                                    }
-                                   ctx.flush();
+                                    System.out.println("连接成功");
+//                                    for(long i=0;i<10;i++){
+//                                        ctx.write(req(i));
+//                                    }
+//                                   ctx.flush();
                                 }
                             });
 

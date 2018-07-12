@@ -6,7 +6,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
@@ -25,8 +24,8 @@ public class StudentServer {
             ServerBootstrap boot = new ServerBootstrap();
             boot.group(bossGroup,workGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG,100)
-                    .handler(new LoggingHandler(LogLevel.DEBUG))
+                    .option(ChannelOption.SO_BACKLOG,128)
+                    .childOption(ChannelOption.SO_KEEPALIVE,true)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
@@ -36,7 +35,7 @@ public class StudentServer {
                              * LengthFieldPrepender     半包解码和解码器  能够解决TCP粘包和半包问题
                              * LengthFieldBasedFrameDecoder
                              */
-                            ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+                                ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
                                 ch.pipeline().addLast(new ProtobufEncoder());
                                 ch.pipeline().addLast(new SimpleChannelInboundHandler() {
                                     @Override

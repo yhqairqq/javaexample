@@ -16,6 +16,7 @@
         <module>jdk-test</module>
         <module>spring-transactionx</module>
         <module>netty-test</module>
+        <module>dubbo-test</module>
     </modules>
 
     <properties>

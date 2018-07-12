@@ -3,10 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="target" class="com.ako.example.spring.MyFactoryBean"></bean>
 
-    <bean id="orderBean" class="com.ako.example.spring.SpringLoadOrderBean"></bean>
-
-    <bean id="controllerFactory" class="com.ako.example.spring.ControllerFactory"></bean>
+    <bean id="connectionFactory" class="com.ako.example.dubbo.nio.DubboCommunicationConnectionFactory">
+    </bean>
 
 </beans>
