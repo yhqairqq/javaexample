@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <context:property-placeholder location="classpath*:dubbo.properties" />
+    <!-- 应用名 -->
+    <dubbo:application name="dubbodemo-consumer"/>
+    <!-- 连接到哪个注册中心（连接到本机的2181端口zookeeper） -->
+    <dubbo:registry address="${dubbo.registry.address}"/>
+    <!-- 消费方用什么协议获取服务（用dubbo协议在20880端口暴露服务） -->
+    <dubbo:protocol port="${dubbo.protocol.port}"/>
+    <!-- 提供哪些接口给消费者调用 -->
+    <bean id="userService" class="com.ako.example.dubbo.xml.UserServiceImpl" />
+    <dubbo:service  interface="com.ako.example.dubbo.xml.UserService" ref="userService"/>
+
+</beans>
