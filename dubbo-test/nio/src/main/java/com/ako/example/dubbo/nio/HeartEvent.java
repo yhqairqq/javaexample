@@ -12,8 +12,8 @@ public class HeartEvent extends Event {
 
     private Byte heart = 1;
 
-    public static enum HeartEventType implements EventType {
-        HEARTBEAT;
+        public static enum HeartEventType implements EventType {
+            HEARTBEAT;
     }
 
     public Byte getHeart() {
