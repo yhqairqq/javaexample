@@ -1,11 +1,9 @@
 package com.ako.example.jdk.guava;
 
-import com.esotericsoftware.kryo.NotNull;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
 import com.google.common.cache.*;
-import lombok.AllArgsConstructor;
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
 import lombok.ToString;
 import org.junit.Test;
@@ -21,7 +19,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class GuavaTest {
 
 
-    LoadingCache<String,ReentrantLock>
+    LoadingCache<String, ReentrantLock>
             cache =
 
             //
@@ -39,7 +37,7 @@ public class GuavaTest {
                         @Override
                         public void onRemoval(RemovalNotification<String, ReentrantLock> notification) {
                             System.out.println(
-                                    notification.getKey()+" was removed,cause in "+notification.getCause()
+                                    notification.getKey() + " was removed,cause in " + notification.getCause()
                             );
                         }
                     })
@@ -56,7 +54,7 @@ public class GuavaTest {
 
     @Test
     public void test() throws ExecutionException {
-        for(int i=0;i<1000*1000;i++){
+        for (int i = 0; i < 1000 * 1000; i++) {
             cache.get(String.valueOf(new Random().nextInt(20)));
         }
 
@@ -67,36 +65,38 @@ public class GuavaTest {
 
         Object o2 = new Object();
 
-        System.out.println(Objects.equal(o1,o2));
+        System.out.println(Objects.equal(o1, o2));
 
         System.out.println(o2 == o1);
 
 
-        Student s1 = new Student("s2",21);
-        Student s2 = new Student("s1",22);
+        Student s1 = new Student("s2", 21);
+        Student s2 = new Student("s1", 22);
         System.out.println(s1 == s2);
         System.out.println(s1.equals(s2));
 
         System.out.println(s1);
 
 
-        System.out.println("cache status:\n"+cache.stats().toString());
+        System.out.println("cache status:\n" + cache.stats().toString());
     }
 
 }
+
 @Data
-@AllArgsConstructor
 @ToString
-class  Student{
+class Student {
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    @NotNull private String name;
+    @NotNull
+    private String name;
     private int age;
-    public String toString(){
-        return  MoreObjects.toStringHelper(this).add("x","1").toString();
+
+    public String toString() {
+        return MoreObjects.toStringHelper(this).add("x", "1").toString();
     }
 
 }
