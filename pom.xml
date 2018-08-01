@@ -17,6 +17,9 @@
         <module>spring-transactionx</module>
         <module>netty-test</module>
         <module>dubbo-test</module>
+        <module>httpclient-test</module>
+        <module>mybatis-test</module>
+        <module>druid-test</module>
     </modules>
 
     <properties>
