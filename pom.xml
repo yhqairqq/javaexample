@@ -20,6 +20,7 @@
         <module>httpclient-test</module>
         <module>mybatis-test</module>
         <module>druid-test</module>
+        <module>embedtomcat-test</module>
     </modules>
 
     <properties>
