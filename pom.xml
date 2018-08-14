@@ -21,6 +21,8 @@
         <module>mybatis-test</module>
         <module>druid-test</module>
         <module>embedtomcat-test</module>
+        <module>zookeeper-test</module>
+        <module>jvm-error</module>
     </modules>
 
     <properties>
